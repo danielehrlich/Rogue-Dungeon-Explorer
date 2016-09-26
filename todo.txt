@@ -1,19 +1,24 @@
+4. Write tests :):)
+
 1. Styling
-  1a. Change appearance of Darkness Button
-  2a. Get together attribution at bottom of landing page
+  1a. Get together attribution at bottom of landing page
+  1b. Adjust padding and space at the bottom part of the attribution section
 
-2. Can you replace the items / players with sprites or anything? Alter look / feel of main app
-  4a. Change background colors of main app to give different feel - 20 mins
-  4b. Add link to title and icon to title - 20 mins
-  4c. ??
-  4d. ??
+2. Remove unecessary stuff from package.json
 
-3. Change the actual code around / refactor - some Sat 60 mins
-	5a. Constants
-	5b. Order of reducers
-	5c. Change around toggle button, it's so simple!!!
-	5d. Random things as necessary in board.js. Refactor where possible :)
+3. Delete other unecessary folders
 
-4. Push to Git
-5. Eventually write tests :):)
-6. Set up a deployment pipeline??
+5. Set up a deployment pipeline??
+  5a. Heroku push
+  5b. Gitlab
+
+
+    {
+      test: /\.css$/,
+      loader: 'css-loader',
+    },
+
+        {
+          test: /\.css$/,
+          loader: 'style-loader',
+        },

@@ -7,8 +7,7 @@
   "scripts": {
     "start": "node server.js",
     "start1": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js",
-    "dev-server": "webpack-dev-server --config webpack.dev.config.js",
-    "hot": "webpack-dev-server --progress --hot --inline --config webpack.hot.config.js",
+    "hot": "webpack-dev-server --progress --hot --inline --config webpack.dev.config.js",
     "build": "webpack -p --config webpack.prod.config.js",
     "build -e": "webpack --config webpack.prod.config.js --display-error-details",
     "build2": "webpack --config webpack.prod.config.js && uglify-js ./build/bundle.js -c -m -o ./build/bundle.min.js --source-map ./build/bundle.min.js.map",
