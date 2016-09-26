@@ -1,18 +1,10 @@
 import {ATTACK_VARIANCE, tileStyle, reverseLookup, weaponItems, ENEMY, PLAYER, htmlEntities} from '../helpers/constants';
 import React, {Component} from 'react';
-import {bindActionCreators} from 'redux'
 import {connect} from 'react-redux';
-import _ from 'lodash';
 import ToggleButton from '../components/toggle_fog';
 import * as actions from '../actions/index';
 import Notifications, {notify} from 'react-notify-toast';
 
-//import jsdom from 'jsdom';
-//nextProps = nextProps.state.state.entities.player
-
-/*
- notifier.error
- */
 
 class Board extends Component {
 	
@@ -21,13 +13,13 @@ class Board extends Component {
 		super(props);
 		this._handleKeypress = this._handleKeypress.bind(this);
 		this.props.setWindowSize();
-		
 	}
+	
 	
 	componentWillMount() {
 		const newState = this.props.state.state;
 		
-		this.setState(this._select2(newState, this.props.mapAlgo));
+		this.setState(this._select2(newState, this.props.firstLevel));
 		
 		var that = this;
 		setTimeout(function () {
@@ -35,11 +27,13 @@ class Board extends Component {
 		}, 1500);
 	}
 	
+	
 	componentWillReceiveProps(nextProps) {
 		const newState = nextProps.state.state;
 		if (newState.entities.player.toNextLevel <= 0) this._playerLevelUp();
 		this.setState(this._select(newState));
 	}
+	
 	
 	_select(state) {
 		return {
@@ -53,6 +47,7 @@ class Board extends Component {
 			darkness      : state.darkness
 		}
 	}
+	
 	
 	_select2(state, algoMap) {
 		return {
@@ -70,7 +65,6 @@ class Board extends Component {
 	
 	setWindowSize(e) {
 		this.props.setWindowSize();
-		
 	}
 	
 	
@@ -97,11 +91,12 @@ class Board extends Component {
 		const music = new Audio('http://www.tannerhelland.com/dmusic/Deeper.mp3');
 		music.play();
 		//console.log("_setupGame just ran");
-		this.props.resetMap(this.props.mapAlgo);
+		this.props.resetMap(this.props.firstLevel);
 		this._fillMap()
 		this.props.setWindowSize();
-		this.props.mapAlgo1();
+		this.props.music();
 	}
+	
 	
 	_availablePosition() {
 		
@@ -116,6 +111,7 @@ class Board extends Component {
 		} while (!coords);
 		return coords;
 	}
+	
 	
 	_fillMap() {
 		this.props.setLocation('player', this._availablePosition());
@@ -138,9 +134,11 @@ class Board extends Component {
 		if (state.level === 5) this.props.addBoss(125, 500, this._availablePosition());
 	}
 	
-	_addVector(coords, vector) {
-		return {x: coords.x + vector.x, y: coords.y + vector.y};
+	
+	_addDirection(coords, direction) {
+		return {x: coords.x + direction.x, y: coords.y + direction.y};
 	}
+	
 	
 	_toggleDarkness() {
 		this.props.toggleDarkness();
@@ -150,17 +148,17 @@ class Board extends Component {
 		
 		let direction = '';
 		switch (e.keyCode) {
-			case 37:
-				direction = {x: -1, y: 0};
-				break;
-			case 38:
-				direction = {x: 0, y: -1};
+			case 40:
+				direction = {x: 0, y: 1};
 				break;
 			case 39:
 				direction = {x: 1, y: 0};
 				break;
-			case 40:
-				direction = {x: 0, y: 1};
+			case 38:
+				direction = {x: 0, y: -1};
+				break;
+			case 37:
+				direction = {x: -1, y: 0};
 				break;
 			default:
 				direction = '';
@@ -174,12 +172,10 @@ class Board extends Component {
 	
 	
 	_handleMove(direction) {
-		
-		
 		const state = this.state;
 		const player = state.entities.player;
 		const map = state.map;
-		const newCoords = this._addVector({x: player.x, y: player.y}, direction);
+		const newCoords = this._addDirection({x: player.x, y: player.y}, direction);
 		if (newCoords.x > 0 && newCoords.y > 0 && newCoords.x < map.length &&
 		  newCoords.y < map[0].length &&
 		  map[newCoords.x][newCoords.y] !== tileStyle.WALL) {
@@ -229,8 +225,9 @@ class Board extends Component {
 					}
 					break;
 				case 'exit':
+					notify.show('Entered the next dungeon...', 'warning', 6000);
 					this.props.resetBoard();
-					this.props.setMap(this.props.mapAlgo1());
+					this.props.setMap(this.props.makeLevel());
 					this.props.setLocation('player', this._availablePosition());
 					this.props.increaseLevel();
 					this._fillMap();
@@ -250,8 +247,8 @@ class Board extends Component {
 		  windowWidth, darkness
 		}      = this.state;
 		const VIEW = 7;
-		let tileSize = document.getElementsByClassName('tile').item(0) ? document.getElementsByClassName('tile').item(0).clientHeight : 10;
-		tileSize = 10;
+		//let tileSize = document.getElementsByClassName('tile').item(0) ? document.getElementsByClassName('tile').item(0).clientHeight : 10;
+		let tileSize = 10;
 		
 		// Get start coords for current viewport
 		const numCols = Math.floor((windowWidth / tileSize) - 5),
@@ -275,7 +272,7 @@ class Board extends Component {
 			endY = map[0].length;
 		}
 		
-		// Create visible gameboard
+		// Create actual HTML gameboard
 		let rows = [], tileClass, row;
 		for (let y = beginY; y < endY; y++) {
 			row = [];
@@ -287,7 +284,7 @@ class Board extends Component {
 					tileClass = entities[entity].entityType;
 				}
 				if (darkness) {
-					// check if it should be dark
+					// check if it should be in fog of war
 					const xDiff = player.x - x,
 					  yDiff = player.y - y;
 					if (Math.abs(xDiff) > VIEW || Math.abs(yDiff) > VIEW) {
@@ -296,10 +293,8 @@ class Board extends Component {
 						tileClass += ' dark';
 					}
 				}
-				//row.push('<span className="tile "' + tileClass + ' key= ' + x + 'x' + y +'></span>');
 				row.push(React.createElement('span', {className: 'tile ' + tileClass, key: x + 'x' + y}, ' '));
 			}
-			//rows.push('<div className="boardRow"' + ' key: row' + y + '></div>');
 			rows.push(React.createElement('div', {className: 'boardRow', key: 'row' + y}, row));
 		}
 		
@@ -345,8 +340,6 @@ class Board extends Component {
 }
 
 function mapStateToProps(state) {
-	// remember, you created an item state.posts.post in your reducer literally just for this page when it emits it's
-	// action creator to hold the return payload / blog post
 	return {state: state};
 }
 

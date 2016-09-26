@@ -1,11 +1,35 @@
-// ACTIONS
-export const INCREASE_LEVEL = 'INCREASE_LEVEL';
+export function addBoss(attack, health, coords) {
+    return {
+      type: 'ADD_BOSS',
+      attack: attack,
+      health: health,
+      location: coords
+    };
+}
+
+export function addEntity(entityName, entityType, health, attack, location) {
+    return {
+      type: 'ADD_ENTITY',
+      entityName: entityName,
+      entityType: entityType,
+      health: health,
+      attack: attack,
+      location: location
+    };
+}
 
 export function damage(entity, value) {
     return {
       type: 'DAMAGE',
       entityName: entity,
       value: value
+    };
+}
+
+export function gainXp(xp) {
+    return {
+      type: 'GAIN_XP',
+      xp: xp
     };
 }
 
@@ -17,41 +41,26 @@ export function heal(entity, health) {
     };
 }
 
-export function move(entity, vector) {
-  console.log("move actioncreator ran!")
+export function increaseLevel() {
+    return {
+      type: 'INCREASE_LEVEL'
+    };
+}
+
+export function levelUp(attack, health, xp) {
+    return {
+      type: 'LEVEL_UP',
+      attack: attack,
+      health: health,
+      toNextLevel: xp
+    };
+}
+
+export function move(entity, direction) {
     return {
       type: 'MOVE',
       entityName: entity,
-      vector: vector};
-}
-
-export function setLocation(entity, location) {
-  console.log("setLocation actionCreaetor ran");
-    return {
-      type: 'SET_LOCATION',
-      entityName: entity,
-      location: location
-    };
-}
-
-export function switchWeapon(weaponName, attack) {
-    return {
-      type: 'SWITCH_WEAPON',
-      weapon: weaponName,
-      attack: attack
-    };
-}
-
-export function addEntity(entityName, entityType, health, attack, location) {
-  console.log("I was ran addEntity!");
-    return {
-      type: 'ADD_ENTITY',
-      entityName: entityName,
-      entityType: entityType,
-      health: health,
-      attack: attack,
-      location: location
-    };
+      direction: direction};
 }
 
 export function removeEntity(entityName) {
@@ -67,22 +76,30 @@ export function resetBoard() {
     };
 }
 
+export function resetLevel() {
+    return {
+      type: 'RESET_LEVEL'
+    };
+}
+
+export function resetMap(map) {
+    return {
+      type: 'RESET_MAP',
+      map: map};
+}
+
+export function setLocation(entity, location) {
+    return {
+      type: 'SET_LOCATION',
+      entityName: entity,
+      location: location
+    };
+}
+
 export function setMap(map) {
     return {
       type: 'SET_MAP',
       map: map
-    };
-}
-
-export function increaseLevel() {
-    return {
-      type: 'INCREASE_LEVEL'
-    };
-}
-
-export function resetLevel() {
-    return {
-      type: 'RESET_LEVEL'
     };
 }
 
@@ -94,34 +111,11 @@ export function setWindowSize() {
     };
 }
 
-export function gainXp(xp) {
+export function switchWeapon(weaponName, attack) {
     return {
-      type: 'GAIN_XP',
-      xp: xp
-    };
-}
-
-export function levelUp(attack, health, xp) {
-    return {
-      type: 'LEVEL_UP',
-      attack: attack,
-      health: health,
-      toNextLevel: xp
-    };
-}
-
-export function resetMap(map) {
-    return {
-      type: 'RESET_MAP',
-      map: map};
-}
-
-export function addBoss(attack, health, coords) {
-    return {
-      type: 'ADD_BOSS',
-      attack: attack,
-      health: health,
-      location: coords
+      type: 'SWITCH_WEAPON',
+      weapon: weaponName,
+      attack: attack
     };
 }
 

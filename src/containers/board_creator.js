@@ -1,7 +1,6 @@
 import {ATTACK_VARIANCE, tileStyle, reverseLookup, weaponItems, ENEMY, PLAYER} from '../helpers/constants';
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-
 import _ from 'lodash';
 import Board from './board';
 
@@ -40,7 +39,7 @@ class BoardCreator extends Component {
 		this.createRoom(map, {x: 45, y: 45}, {x: 10, y: 10}, tileStyle.FLOOR);
 		
 		
-		// create rooms
+		// create all the rooms
 		for (let i = 0; i < numRooms; i++) {
 			this.placeRoom(map);
 		}
@@ -172,8 +171,8 @@ class BoardCreator extends Component {
 		return (
 		  <div>
 			  <Board
-				mapAlgo={ this.state.map }
-				mapAlgo1={ this.createMap.bind(this) }
+				firstLevel={ this.state.map }
+				m={ this.createMap.bind(this) }
 			  />
 		  </div>
 		

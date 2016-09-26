@@ -71,7 +71,7 @@ class LoadingPage extends Component {
 				</div>
 			</div>
 			<div id="SecondPage">
-				<h1>Rogue Dungeon Game</h1>
+				<h1><a href="https://en.wikipedia.org/wiki/Rogue_(video_game)">Rogue Dungeon Game</a></h1>
 				<h4>Defeat the Monster in Level 5</h4>
 				<BoardCreator/>
 			</div>

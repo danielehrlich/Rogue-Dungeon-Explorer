@@ -1,5 +1,6 @@
 var path = require('path');
 var webpack = require('webpack');
+var autoprefixer = require('autoprefixer');
 
 module.exports = {
 	
@@ -29,7 +30,7 @@ module.exports = {
 			
 			{
 				test: /\.scss$/,
-				loaders: ['style', 'css', 'resolve-url', 'sass']
+				loaders: ['style', 'css', 'postcss', 'resolve-url', 'sass']
 			},
 			
 			{
@@ -41,6 +42,10 @@ module.exports = {
 				loader: 'url?limit=65000&mimetype=application/octet-stream&name=fonts/[name].[ext]'
 			}],
 	},
+	
+	postcss: [
+	  autoprefixer({ browsers: ['last 2 versions'] })
+	],
 	
 	resolve: {
 		extensions: ['', '.js', '.jsx','.scss', '.css', 'woff', 'tff']
