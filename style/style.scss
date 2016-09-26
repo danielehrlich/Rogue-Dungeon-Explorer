@@ -1,0 +1,249 @@
+@font-face {
+  font-family: 'Dungeon';
+  src: url("./fonts/DUNGRG.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  -webkit-font-smoothing: subpixel-antialiased;
+  color: #4B572A;
+  font-family: Palatino, 'Palatino Linotype', Georgia;
+  background-color: black;
+}
+
+/* Title, UI, and icon stylings */
+h1, h4 {
+  font-family: 'Dungeon';
+  font-size: 80px;
+  color: #4B572A;
+  text-align: center;
+}
+
+h1 {
+  margin-top: -30px;
+  margin-bottom: 18px;
+}
+
+h4 {
+  margin-top: -40px;
+  margin-bottom: -30px;
+}
+
+ul#ui {
+  color: #69783C;
+  font-size: 22px;
+  line-height: 2.5;
+  padding-left: 10px;
+}
+
+#ui li {
+  list-style: none;
+  float: left;
+  padding: 5px 15px;
+  border-style: none;
+  board-width: 1px;
+  border-color: black;
+  font-family: Roboto
+}
+
+i {
+  padding-right: 6px;
+}
+
+button {
+  float: right;
+  margin-right: 8%;
+  padding: 10px;
+  border-radius: 5%;
+}
+
+.toggleButton {
+  font-size: 35px;
+  font-family: 'Times New Roman';
+  padding: 6px 10px 6px 10px;
+  font-weight: bold;
+  border-radius: 5%;
+  margin-bottom: 20px;
+}
+
+.label {
+  font-weight: 700;
+}
+
+#board {
+  padding-top: 10px;
+  clear: both;
+  //margin-left: 12vw;
+}
+
+
+/* Actual Game Board */
+.WALL {
+  background-color: #281B05;
+}
+
+.FLOOR {
+  background-color: #D1D9DE;
+}
+
+.player {
+  background-color: blue;
+  color: blue;
+}
+
+.enemy {
+  background-color: red;
+}
+
+.weapon {
+  background-color: orange;
+}
+
+.health {
+  background-color: green;
+}
+
+.exit {
+  background-color: purple;
+}
+
+.tile {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  display: inline-block;
+  float: left;
+  letter-spacing: 7px;
+  width: .75em;
+}
+
+.dark {
+  color: black;
+  background-color: black;
+}
+
+.boardRow, .tile {
+  margin: 0px;
+  padding: 0px;
+  border-style: solid;
+  border-color: black;
+  border-width: 0px;
+  height: .75em;
+  overflow:hidden;
+}
+
+
+
+
+/* First Loading Page*/
+.square-box{
+  position: relative;
+  max-width: 100vw;
+  //overflow: hidden;
+  z-index: 100;
+  background: black;
+}
+
+.square-box:before{
+  content: "";
+  display: block;
+  padding-top: 100%;
+
+}
+
+.square-content{
+  position:  absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  color: white;
+  z-index: 100;
+}
+.square-content div {
+  display: table;
+  width: 100%;
+  height: 100%;
+}
+
+.square-content span {
+  display: table-cell;
+  max-width: 400px;
+  text-align: center;
+  padding-top: 30px;
+  font-size: 6vh;
+  color: white
+}
+
+ul#loading {
+  max-width: 900px;
+  display: inline-block;
+  line-height: .9;
+}
+
+ul#loading li {
+  padding-bottom: 40px;
+  list-style: none;
+  font-family: 'Dungeon';
+}
+
+ul#loading li:not(:first-child) {
+
+}
+
+#continue {
+  font-size: 50px;
+  font-family: 'Times New Roman';
+  padding: 10px;
+  font-weight: bold;
+  border-radius: 5%;
+}
+
+div#attribution {
+  font-family: 'Times New Roman';
+  font-size: 25px;
+}
+
+
+/* Notifications */
+.toast-notification {
+  top: -50px !important;
+}
+
+span.error, span.success {
+  font-size: 30px;
+}
+
+
+/* Media Queries */
+@media only (max-width : 736px) {
+  h1, h4 {
+    font-family: 'Dungeon';
+    font-size: 50px;
+  }
+
+  h1 {
+    margin-top: 0px;
+  }
+
+  h4 {
+    margin-bottom: 0px;
+  }
+
+  #board {
+    padding-top: 10px;
+    clear: both;
+    margin-left: 2px;
+  }
+
+  // Double check this...
+  .square-content span {
+    padding-right: 50px;
+  }
+
+  // Center the menu at the top?
+}

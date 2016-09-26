@@ -1,0 +1,19 @@
+1. Styling
+  1a. Change appearance of Darkness Button
+  2a. Get together attribution at bottom of landing page
+
+2. Can you replace the items / players with sprites or anything? Alter look / feel of main app
+  4a. Change background colors of main app to give different feel - 20 mins
+  4b. Add link to title and icon to title - 20 mins
+  4c. ??
+  4d. ??
+
+3. Change the actual code around / refactor - some Sat 60 mins
+	5a. Constants
+	5b. Order of reducers
+	5c. Change around toggle button, it's so simple!!!
+	5d. Random things as necessary in board.js. Refactor where possible :)
+
+4. Push to Git
+5. Eventually write tests :):)
+6. Set up a deployment pipeline??
