@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 
-class ToggleButton extends Component {
+class FogButton extends Component {
 	/*propTypes: {
 		label: React.PropTypes.string.isRequired,
 		id: React.PropTypes.string.isRequired,
@@ -18,4 +18,4 @@ class ToggleButton extends Component {
 	}
 }
 
-export default ToggleButton
+export default FogButton

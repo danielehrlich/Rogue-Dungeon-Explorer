@@ -1,7 +1,7 @@
 import {ATTACK_VARIANCE, tileStyle, reverseLookup, weaponItems, ENEMY, PLAYER, htmlEntities} from '../helpers/constants';
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import ToggleButton from '../components/toggle_fog';
+import FogButton from '../components/fog_button';
 import * as actions from '../actions/index';
 import Notifications, {notify} from 'react-notify-toast';
 
@@ -99,8 +99,7 @@ class Board extends Component {
 	
 	
 	_availablePosition() {
-		
-		const {map, occupiedSpaces} = this.state; // eh this should work.....
+		const { map, occupiedSpaces } = this.state; // eh this should work.....
 		let coords, x, y;
 		do {
 			x = Math.floor(Math.random() * map.length);
@@ -136,7 +135,7 @@ class Board extends Component {
 	
 	
 	_addDirection(coords, direction) {
-		return {x: coords.x + direction.x, y: coords.y + direction.y};
+		return { x: coords.x + direction.x, y: coords.y + direction.y };
 	}
 	
 	
@@ -145,7 +144,6 @@ class Board extends Component {
 	}
 	
 	_handleKeypress(e) {
-		
 		let direction = '';
 		switch (e.keyCode) {
 			case 40:
@@ -326,7 +324,7 @@ class Board extends Component {
 				  </li>
 			  </ul>
 			  <div className='buttons'>
-				  <ToggleButton
+				  <FogButton
 					id='toggleDarkness'
 					handleClick={this._toggleDarkness.bind(this)}/>
 			  </div>
