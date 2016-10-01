@@ -66,5 +66,4 @@ export const htmlEntities = {
 };
 
 
-export {ATTACK_VARIANCE, tileStyle, reverseLookup, weaponItems, ENEMY, PLAYER, htmlEntities};
 

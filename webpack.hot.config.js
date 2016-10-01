@@ -13,15 +13,13 @@ module.exports = {
 		filename: 'bundle.js'
 	},
 	
-	devtool: 'source-map',
-	
 	module: {
 		loaders: [
 			{
 				exclude: /node_modules/,
 				loader: 'babel',
 				query: {
-					presets: ['react', 'es2015', 'stage-1']
+					presets: ['react', 'es2015', 'stage-1', 'react-hmre']
 				}
 			},
 			

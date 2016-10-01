@@ -22,3 +22,7 @@
           test: /\.css$/,
           loader: 'style-loader',
         },
+
+
+
+        , 'react-hmre'

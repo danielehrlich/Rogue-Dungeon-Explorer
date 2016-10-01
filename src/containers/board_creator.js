@@ -5,7 +5,7 @@ import _ from 'lodash';
 import Board from './board';
 
 
-class BoardCreator extends Component {
+export class BoardCreator extends Component {
 	
 	constructor(props) {
 		super(props);
@@ -37,7 +37,7 @@ class BoardCreator extends Component {
 		
 		// create first room
 		this.createRoom(map, {x: 45, y: 45}, {x: 10, y: 10}, tileStyle.FLOOR);
-		
+		this.setState({map: map});
 		
 		// create all the rooms
 		for (let i = 0; i < numRooms; i++) {
@@ -167,13 +167,28 @@ class BoardCreator extends Component {
 	
 	render() {
 		
+		var Helper = function(object) {
+			for(var prop in object){
+				console.log(prop);
+			}
+		};
+		
+		var RenderThing;
+		//console.log(this.state.map);
+		
+		// if (this.state.map) {
+		// 	RenderThing = <Board firstLevel = { this.state.map } makeLevel = { this.createMap.bind(this) }/>;
+		// } else {
+		// 	RenderThing = <Board />;
+		// }
+		//console.log("RenderThing: " + Helper(RenderThing));
+		
 		
 		return (
 		  <div>
-			  <Board
-				firstLevel={ this.state.map }
-				m={ this.createMap.bind(this) }
-			  />
+			  
+			  <Board firstLevel = { this.state.map } makeLevel = { this.createMap.bind(this) }/>
+			  <p className="hellome">Fun Text</p>
 		  </div>
 		
 		);

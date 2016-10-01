@@ -1,18 +1,23 @@
 import {ATTACK_VARIANCE, tileStyle, reverseLookup, weaponItems, ENEMY, PLAYER, htmlEntities} from '../helpers/constants';
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import FogButton from '../components/fog_button';
+import _ from 'lodash';
+import ToggleButton from '../components/fog_button';
 import * as actions from '../actions/index';
 import Notifications, {notify} from 'react-notify-toast';
 
 
-class Board extends Component {
+export class Board extends Component {
 	
 	
 	constructor(props) {
 		super(props);
 		this._handleKeypress = this._handleKeypress.bind(this);
 		this.props.setWindowSize();
+		// let initialMapLength = _.fill(Array(150), 0);
+		// this.state = {
+		// 	map : initialMapLength
+		// };
 	}
 	
 	
@@ -20,11 +25,11 @@ class Board extends Component {
 		const newState = this.props.state.state;
 		
 		this.setState(this._select2(newState, this.props.firstLevel));
-		
 		var that = this;
 		setTimeout(function () {
 			that._setupGame()
 		}, 1500);
+		
 	}
 	
 	
@@ -49,11 +54,12 @@ class Board extends Component {
 	}
 	
 	
-	_select2(state, algoMap) {
+	_select2(state, firstLevel) {
+		
 		return {
 			player        : state.entities.player,
 			entities      : state.entities,
-			map           : algoMap,
+			map           : firstLevel,
 			occupiedSpaces: state.occupiedSpaces,
 			level         : state.level,
 			windowHeight  : state.windowHeight,
@@ -94,7 +100,7 @@ class Board extends Component {
 		this.props.resetMap(this.props.firstLevel);
 		this._fillMap()
 		this.props.setWindowSize();
-		this.props.music();
+		//this.props.music();
 	}
 	
 	
@@ -240,70 +246,92 @@ class Board extends Component {
 	
 	render() {
 		
-		const {
-		  map, entities, occupiedSpaces, level, player, windowHeight,
-		  windowWidth, darkness
-		}      = this.state;
-		const VIEW = 7;
-		//let tileSize = document.getElementsByClassName('tile').item(0) ? document.getElementsByClassName('tile').item(0).clientHeight : 10;
-		let tileSize = 10;
+		const { map, player, level } = this.state;
 		
-		// Get start coords for current viewport
-		const numCols = Math.floor((windowWidth / tileSize) - 5),
-		  numRows = Math.floor((windowHeight / tileSize) - 17);
-		let beginX = Math.floor(player.x - (numCols / 2));
-		let beginY = Math.floor(player.y - (numRows / 2));
-		// Make sure start isn't less than 0
-		if (beginX < 0) beginX = 0;
-		if (beginY < 0) beginY = 0;
-		// Set end coords
-		let endX = beginX + numCols;
-		let endY = beginY + numRows;
-		// Final validation of start and end coords
-		
-		if (endX > map.length) {
-			beginX = numCols > map.length ? 0 : beginX - (endX - map.length);
-			endX = map.length;
-		}
-		if (endY > map[0].length) {
-			beginY = numRows > map[0].length ? 0 : beginY - (endY - map[0].length);
-			endY = map[0].length;
-		}
-		
-		// Create actual HTML gameboard
-		let rows = [], tileClass, row;
-		for (let y = beginY; y < endY; y++) {
-			row = [];
-			for (let x = beginX; x < endX; x++) {
-				let entity = occupiedSpaces[`${x}x${y}`];
-				if (!entity) {
-					tileClass = reverseLookup[map[x][y]];
-				} else {
-					tileClass = entities[entity].entityType;
-				}
-				if (darkness) {
-					// check if it should be in fog of war
-					const xDiff = player.x - x,
-					  yDiff = player.y - y;
-					if (Math.abs(xDiff) > VIEW || Math.abs(yDiff) > VIEW) {
-						tileClass += ' dark';
-					} else if (Math.sqrt(Math.pow(xDiff, 2) + Math.pow(yDiff, 2)) >= VIEW) {
-						tileClass += ' dark';
+			if (!(typeof map == 'undefined') && (map.length != 0)) {
+				//console.log("map checked out!");
+				const {
+				  entities, occupiedSpaces, windowHeight,
+				  windowWidth, darkness
+				}      = this.state;
+				const VIEW = 7;
+				//let tileSize = document.getElementsByClassName('tile').item(0) ? document.getElementsByClassName('tile').item(0).clientHeight : 10;
+				let tileSize = 10;
+				
+				// // Get start coords for current viewport
+				// const numCols = Math.floor((windowWidth / tileSize) - 5),
+				//   numRows = Math.floor((windowHeight / tileSize) - 17);
+				// let beginX = Math.floor(player.x - (numCols / 2));
+				// let beginY = Math.floor(player.y - (numRows / 2));
+				// // Make sure start isn't less than 0
+				// if (beginX < 0) beginX = 0;
+				// if (beginY < 0) beginY = 0;
+				// // Set end coords
+				// let endX = beginX + numCols;
+				// let endY = beginY + numRows;
+				// // Final validation of start and end coords
+				//
+				// if (endX > map.length) {
+				// 	beginX = numCols > map.length ? 0 : beginX - (endX - map.length);
+				// 	endX = map.length;
+				// }
+				// console.log("beginXstuff: " + beginX + " " + endX);
+				// if (endY > map[0].length) {
+				// 	beginY = numRows > map[0].length ? 0 : beginY - (endY - map[0].length);
+				// 	endY = map[0].length;
+				// 	console.log(beginY + " " + endY);
+				//
+				// }
+				var beginX = 0;
+				var endX = 149;
+				var beginY = 0;
+				var endY = 59;
+				
+				// Create actual HTML gameboard
+				var rows = [], tileClass, row;
+				for (let y = beginY; y < endY; y++) {
+					row = [];
+					for (let x = beginX; x < endX; x++) {
+						let entity = occupiedSpaces[`${x}x${y}`];
+						if (!entity) {
+							//console.log(typeof reverseLookup);
+							//"Reverse Lookup: " + map[x][y] +
+							//console.log("x: " + x + " y: " + y);
+							var temp1 = map[x];
+							var temp2 = temp1[y];
+							tileClass = reverseLookup[temp2];
+							
+						} else {
+							tileClass = entities[entity].entityType;
+						}
+						if (darkness) {
+							// check if it should be in fog of war
+							const xDiff = player.x - x,
+							  yDiff = player.y - y;
+							if (Math.abs(xDiff) > VIEW || Math.abs(yDiff) > VIEW) {
+								tileClass += ' dark';
+							} else if (Math.sqrt(Math.pow(xDiff, 2) + Math.pow(yDiff, 2)) >= VIEW) {
+								tileClass += ' dark';
+							}
+						}
+						row.push(React.createElement('span', {className: 'tile ' + tileClass, key: x + 'x' + y}, ' '));
 					}
+					rows.push(React.createElement('div', {className: 'boardRow', key: 'row' + y}, row));
 				}
-				row.push(React.createElement('span', {className: 'tile ' + tileClass, key: x + 'x' + y}, ' '));
+				
+			} else {
+				var rows = React.createElement('span', {className: 'tile'}, ' ');
 			}
-			rows.push(React.createElement('div', {className: 'boardRow', key: 'row' + y}, row));
-		}
 		
 		
 		return (
 		  <div id='game'>
+			  <p>Hello Funny</p>
 			  <Notifications/>
 			  <ul id='ui'>
 				  <li id='health'>
 					  <i className="ra ra-health ra-lg"></i>
-					  <span className='label'>Health:</span> {player.health}
+					  <span className='label' id="health">Health:</span> {player.health}
 				  </li>
 				  <li id='weapon'>
 					  <i className="ra ra-broadsword ra-lg"></i>
@@ -324,7 +352,7 @@ class Board extends Component {
 				  </li>
 			  </ul>
 			  <div className='buttons'>
-				  <FogButton
+				  <ToggleButton
 					id='toggleDarkness'
 					handleClick={this._toggleDarkness.bind(this)}/>
 			  </div>

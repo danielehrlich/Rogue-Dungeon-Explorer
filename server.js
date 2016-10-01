@@ -22,6 +22,10 @@ app.get('/', function(request, response) {
 	response.sendFile(__dirname + '/build/index.html')
 });
 
+app.post('/savefile', function(request, response){
+	
+});
+
 app.listen(PORT, function(error) {
 	if (error) {
 		console.error(error);
