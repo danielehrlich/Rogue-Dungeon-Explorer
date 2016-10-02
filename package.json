@@ -12,9 +12,9 @@
     "build": "webpack -p --config webpack.prod.config.js",
     "build -e": "webpack --config webpack.prod.config.js --display-error-details",
     "build2": "webpack --config webpack.prod.config.js && uglify-js ./build/bundle.js -c -m -o ./build/bundle.min.js --source-map ./build/bundle.min.js.map",
-    "test": "mocha --compilers js:babel-core/register --require ./test/test_helper.js --recursive ./test",
+    "test": "mocha --compilers js:babel-core/register --require ./test/helpers/browser.js --recursive ./test",
     "test:watch": "npm run test -- --watch",
-    "test3": "mocha --compilers js:babel-core/register --require ./test/helpers/browser.js --recursive ./test"
+    "test3": "mocha --compilers js:babel-core/register --require ./test/helpers/browser.js --recursive ./test --timeout 3000 --debug"
   },
   "author": "",
   "license": "ISC",
@@ -45,6 +45,7 @@
     "node-sass": "^3.10.0",
     "postcss-loader": "^0.13.0",
     "react-addons-test-utils": "^0.14.7",
+    "redux-mock-store": "^1.2.1",
     "resolve-url-loader": "^1.6.0",
     "sass-loader": "^4.0.2",
     "sinon": "^1.17.6",

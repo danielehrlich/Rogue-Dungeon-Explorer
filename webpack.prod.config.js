@@ -13,7 +13,7 @@ module.exports = {
     path: path.join(__dirname, 'build'),
     filename: 'build.min.js'
   },
-  devtool: 'sourcemap',
+  devtool: '#sourcemap',
   module: {
     loaders: [{
       exclude: /node_modules/,

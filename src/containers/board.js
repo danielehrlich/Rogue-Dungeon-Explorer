@@ -2,7 +2,7 @@ import {ATTACK_VARIANCE, tileStyle, reverseLookup, weaponItems, ENEMY, PLAYER, h
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import _ from 'lodash';
-import ToggleButton from '../components/fog_button';
+import FogButton from '../components/fog_button';
 import * as actions from '../actions/index';
 import Notifications, {notify} from 'react-notify-toast';
 
@@ -26,10 +26,14 @@ export class Board extends Component {
 		
 		this.setState(this._select2(newState, this.props.firstLevel));
 		var that = this;
-		setTimeout(function () {
+		this.timer = setTimeout(function () {
 			that._setupGame()
 		}, 1500);
 		
+	}
+	
+	componentWillUnmount() {
+		clearTimeout(this.timer);
 	}
 	
 	
@@ -94,9 +98,8 @@ export class Board extends Component {
 	
 	
 	_setupGame() {
-		const music = new Audio('http://www.tannerhelland.com/dmusic/Deeper.mp3');
-		music.play();
-		//console.log("_setupGame just ran");
+		
+		//var music = new Audio('http://www.tannerhelland.com/dmusic/Deeper.mp3');
 		this.props.resetMap(this.props.firstLevel);
 		this._fillMap()
 		this.props.setWindowSize();
@@ -314,7 +317,7 @@ export class Board extends Component {
 								tileClass += ' dark';
 							}
 						}
-						row.push(React.createElement('span', {className: 'tile ' + tileClass, key: x + 'x' + y}, ' '));
+						row.push(React.createElement('span', {className: 'tile ' + tileClass, key: x + 'x' + y, value: x + 'x' + y}, ' '));
 					}
 					rows.push(React.createElement('div', {className: 'boardRow', key: 'row' + y}, row));
 				}
@@ -352,7 +355,7 @@ export class Board extends Component {
 				  </li>
 			  </ul>
 			  <div className='buttons'>
-				  <ToggleButton
+				  <FogButton
 					id='toggleDarkness'
 					handleClick={this._toggleDarkness.bind(this)}/>
 			  </div>

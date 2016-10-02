@@ -186,9 +186,9 @@ export class BoardCreator extends Component {
 		
 		return (
 		  <div>
-			  
-			  <Board firstLevel = { this.state.map } makeLevel = { this.createMap.bind(this) }/>
 			  <p className="hellome">Fun Text</p>
+			  <Board firstLevel = { this.state.map } makeLevel = { this.createMap.bind(this) }/>
+			  
 		  </div>
 		
 		);
