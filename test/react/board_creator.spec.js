@@ -20,16 +20,16 @@ describe('<BoardCreator/>', () => {
 		
 		var wrapper;
 		beforeEach((done) => {
-			wrapper = render(
+			wrapper = mount(
 			  <Provider store={createStoreWithMiddleware(reducers)}>
-				  <BoardC/>
+				  <BoardC />
 			  </Provider>
 			);
 			done();
 		});
 		
-		it('Should have the correct text in the <p> element', function (done) {
-			expect(wrapper.find('.hellome')).to.contain.text('Fun Text');
+		it('should have the correct class name', function (done) {
+			expect(wrapper.find('.board-creator')).to.exist;
 			done();
 		});
 		
@@ -38,10 +38,30 @@ describe('<BoardCreator/>', () => {
 	
 	describe('The algorithm to create the map works', function (done) {
 		
-		it('Should do something map creating related', function (done) {
-			let map1 = new BoardCreator();
-			let map2 = map1.createMap();
+		var map1, map2;
+		before((done) => {
+			map1 = new BoardCreator();
+			map2 = map1.createMap();
 			done();
+		});
+		
+		it('should recognize that map is an object', function () {
+			console.log(typeof map2);
+			let ans = typeof map2;
+			expect(ans).to.be.equal('object');
+		});
+		
+		it('should calculate the door offset correctly within the bounds of room size', function () {
+			let ans = map1.getDoorOffset(20);
+			expect(ans).to.be.below(20);
+			expect(ans).to.be.above(-20);
+		});
+		
+		it('should recognize a wall tile when passed a map', function () {
+			let arr1 = [[1]];
+			arr1.push([[1]]);
+			let ans = map1.isWall(arr1, {x: 0, y: 0});
+			expect(ans).to.be.false;
 		});
 		
 		

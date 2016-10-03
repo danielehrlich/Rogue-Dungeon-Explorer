@@ -119,9 +119,7 @@ export class BoardCreator extends Component {
 	}
 	
 	getDoorOffset(length) {
-		//console.log(length);
 		var ans = Math.floor(Math.random() * length) - Math.floor((length - 1 ) / 2);
-		//console.log(ans);
 		return ans;
 	}
 	
@@ -185,12 +183,12 @@ export class BoardCreator extends Component {
 		
 		
 		return (
-		  <div>
-			  <p className="hellome">Fun Text</p>
-			  <Board firstLevel = { this.state.map } makeLevel = { this.createMap.bind(this) }/>
-			  
+		  <div className="board-creator">
+			  <Board
+			  firstLevel = { this.state.map }
+			  makeLevel = { this.createMap.bind(this) }
+			  />
 		  </div>
-		
 		);
 	}
 	

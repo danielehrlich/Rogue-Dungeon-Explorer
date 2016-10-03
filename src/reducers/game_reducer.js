@@ -112,7 +112,6 @@ export default function gameReducer(state = initialStore, action = null) {
 			
 			
 		case 'MOVE':
-			console.log("The MOVE reducer just ran");
 			return {
 				...state,
 				occupiedSpaces: _.chain(state.occupiedSpaces)
@@ -174,7 +173,6 @@ export default function gameReducer(state = initialStore, action = null) {
 			
 			
 		case 'SET_LOCATION':
-			console.log("SET_LOCATION reducer");
 			return {
 				...state,
 				occupiedSpaces: _.chain(state.occupiedSpaces)

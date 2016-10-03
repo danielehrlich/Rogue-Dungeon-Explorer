@@ -329,7 +329,6 @@ export class Board extends Component {
 		
 		return (
 		  <div id='game'>
-			  <p>Hello Funny</p>
 			  <Notifications/>
 			  <ul id='ui'>
 				  <li id='health'>

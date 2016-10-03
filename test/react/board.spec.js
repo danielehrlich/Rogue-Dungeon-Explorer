@@ -16,7 +16,6 @@ const createStoreWithMiddleware = applyMiddleware()(createStore);
 describe('<ConnectedBoard/>', (done) => {
 	
 	
-	
 	describe('These tests relate to the structure and style of the DOM', function (done) {
 		
 		var wrapper;
@@ -32,15 +31,21 @@ describe('<ConnectedBoard/>', (done) => {
 			done();
 		});
 		
-		it('Should have the correct text in the <p> element', function (done) {
-			expect(wrapper.find('p')).to.contain.text('Hello Funny');
-			done();
-		});
-		
 		it('Should have six <li> elements as part of the UI dashboard', function (done) {
 			expect(wrapper.find('#ui')).to.have.exactly(6).descendants('li');
 			done();
 		});
+		
+		it('confirm the first UI element has text / the correct text displayed', function (done) {
+			/*
+			text contains test
+			 */
+			done();
+		});
+		
+		/*
+		Board should have loaded
+		 */
 		
 		it('Should have 59 rows making up the board', function () {
 			expect(wrapper.find('#board')).to.have.exactly(59).descendants('.boardRow');
@@ -58,13 +63,18 @@ describe('<ConnectedBoard/>', (done) => {
 			var map4 = map3.createMap();
 			var props = {firstLevel: map4, store: createStoreWithMiddleware(reducers)};
 			var FunBoard = new ConnectedBoard(props);
-			console.log(FunBoard);
 			done();
 		});
-	//
+	
 		it('The player should be able to move and change position', function () {
+			//_handleDirection
 			console.warn("pass");
 
+		});
+		
+		it('should be able to handle keypress and give a vector', function () {
+			console.warn("pass");
+			
 		});
 	});
 	
