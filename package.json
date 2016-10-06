@@ -12,7 +12,7 @@
     "build": "webpack -p --config webpack.prod.config.js",
     "build -e": "webpack --config webpack.prod.config.js --display-error-details",
     "build2": "webpack --config webpack.prod.config.js && uglify-js ./build/bundle.js -c -m -o ./build/bundle.min.js --source-map ./build/bundle.min.js.map",
-    "test": "mocha --compilers js:babel-core/register --require ./test/helpers/browser.js --recursive ./test --timeout 3000",
+    "test": "mocha --compilers js:babel-core/register --require ./test/helpers/browser.js --recursive ./test --timeout 15000",
     "test:watch": "npm run test -- --watch",
     "test3": "mocha --compilers js:babel-core/register --require ./test/helpers/browser.js --recursive ./test --timeout 3000 --debug"
   },
