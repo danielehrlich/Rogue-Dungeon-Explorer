@@ -31,7 +31,7 @@ describe('<ConnectedBoard/>', (done) => {
 			done();
 		});
 		
-		it('Should have six <li> elements as part of the UI dashboard', function (done) {
+		it('should have six <li> elements as part of the UI dashboard', function (done) {
 			expect(wrapper.find('#ui')).to.have.exactly(6).descendants('li');
 			done();
 		});
@@ -47,7 +47,7 @@ describe('<ConnectedBoard/>', (done) => {
 		Board should have loaded
 		 */
 		
-		it('Should have 59 rows making up the board', function () {
+		it('should have 59 rows making up the board', function () {
 			expect(wrapper.find('#board')).to.have.exactly(59).descendants('.boardRow');
 		});
 		
@@ -66,7 +66,7 @@ describe('<ConnectedBoard/>', (done) => {
 			done();
 		});
 	
-		it('The player should be able to move and change position', function () {
+		it('the player should be able to move and change position', function () {
 			//_handleDirection
 			console.warn("pass");
 

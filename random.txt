@@ -1,9 +1,0 @@
-    {
-      test: /\.css$/,
-      loader: 'css-loader',
-    },
-
-        {
-          test: /\.css$/,
-          loader: 'style-loader',
-        },

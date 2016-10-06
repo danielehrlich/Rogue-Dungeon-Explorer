@@ -1,9 +1,9 @@
 {
-  "name": "redux-simple-starter",
+  "name": "rogue-dungeon-explorer",
   "version": "1.0.0",
-  "description": "Simple starter package for Redux with React and Babel support",
+  "description": "dungeon game based off of the original 1980 platformer",
   "main": "index.js",
-  "repository": "git@github.com:StephenGrider/ReduxSimpleStarter.git",
+  "repository": "git@github.com:danielehrlich/Rogue-Dungeon-Explorer.git",
   "scripts": {
     "start": "node server.js",
     "start1": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js",
@@ -12,18 +12,31 @@
     "build": "webpack -p --config webpack.prod.config.js",
     "build -e": "webpack --config webpack.prod.config.js --display-error-details",
     "build2": "webpack --config webpack.prod.config.js && uglify-js ./build/bundle.js -c -m -o ./build/bundle.min.js --source-map ./build/bundle.min.js.map",
-    "test": "mocha --compilers js:babel-core/register --require ./test/helpers/browser.js --recursive ./test",
+    "test": "mocha --compilers js:babel-core/register --require ./test/helpers/browser.js --recursive ./test --timeout 3000",
     "test:watch": "npm run test -- --watch",
     "test3": "mocha --compilers js:babel-core/register --require ./test/helpers/browser.js --recursive ./test --timeout 3000 --debug"
   },
-  "author": "",
+  "author": "Daniel Ehrlich",
   "license": "ISC",
+  "dependencies": {
+    "jquery": "^2.2.4",
+    "jsdom": "^8.1.0",
+    "lodash": "^3.10.1",
+    "react": "^15.3.2",
+    "react-delay": "0.0.3",
+    "react-dom": "^15.3.2",
+    "react-notify-toast": "^0.1.3",
+    "react-redux": "^4.0.0",
+    "react-router": "^2.0.1",
+    "redux": "^3.0.4"
+  },
   "devDependencies": {
     "autoprefixer": "^6.4.1",
     "ava": "^0.16.0",
     "babel-cli": "^6.16.0",
     "babel-core": "^6.2.1",
     "babel-loader": "^6.2.0",
+    "babel-preset-stage-1": "^6.1.18",
     "babel-preset-es2015": "^6.1.18",
     "babel-preset-react": "^6.1.18",
     "babel-preset-react-hmre": "^1.1.1",
@@ -39,7 +52,6 @@
     "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.9.0",
     "html-webpack-plugin": "^2.22.0",
-    "jquery": "^2.2.1",
     "jsdom": "^8.1.0",
     "mocha": "^2.4.5",
     "node-sass": "^3.10.0",
@@ -54,19 +66,5 @@
     "url-loader": "^0.5.7",
     "webpack": "^1.12.9",
     "webpack-dev-server": "^1.14.0"
-  },
-  "dependencies": {
-    "babel-preset-airbnb": "^2.1.1",
-    "babel-preset-stage-1": "^6.1.18",
-    "jquery": "^2.2.4",
-    "jsdom": "^8.1.0",
-    "lodash": "^3.10.1",
-    "react": "^15.3.2",
-    "react-delay": "0.0.3",
-    "react-dom": "^15.3.2",
-    "react-notify-toast": "^0.1.3",
-    "react-redux": "^4.0.0",
-    "react-router": "^2.0.1",
-    "redux": "^3.0.4"
   }
 }

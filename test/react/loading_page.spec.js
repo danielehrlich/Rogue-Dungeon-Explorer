@@ -9,7 +9,7 @@ chai.use(chaiEnzyme())
 
 describe('<LoadingPage/>', function () {
 	
-	it('Should contain the right text', function () {
+	it('should contain the right text', function () {
 		// let wrapperA = shallow(<FogButton/>);
 		// expect(wrapperA.find('button')).to.have.className('toggleButton');
 	});
