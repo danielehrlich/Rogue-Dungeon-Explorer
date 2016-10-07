@@ -2,7 +2,6 @@
   "name": "rogue-dungeon-explorer",
   "version": "1.0.0",
   "description": "dungeon game based off of the original 1980 platformer",
-  "main": "index.js",
   "repository": "git@github.com:danielehrlich/Rogue-Dungeon-Explorer.git",
   "scripts": {
     "start": "node server.js",
@@ -12,7 +11,7 @@
     "build": "webpack -p --config webpack.prod.config.js",
     "build -e": "webpack --config webpack.prod.config.js --display-error-details",
     "build2": "webpack --config webpack.prod.config.js && uglify-js ./build/bundle.js -c -m -o ./build/bundle.min.js --source-map ./build/bundle.min.js.map",
-    "test": "mocha --compilers js:babel-core/register --require ./test/helpers/browser.js --recursive ./test --timeout 15000",
+    "test": "mocha --compilers js:babel-core/register --require ./test/helpers/browser.js --recursive ./test --timeout 15000 --reporter landing",
     "test:watch": "npm run test -- --watch",
     "test3": "mocha --compilers js:babel-core/register --require ./test/helpers/browser.js --recursive ./test --timeout 3000 --debug"
   },

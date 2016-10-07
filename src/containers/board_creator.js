@@ -24,8 +24,9 @@ export class BoardCreator extends Component {
 		this.createMap();
 	}
 	
-	componentWillReceiveProps(nextProps) {
-
+	componentDidMount(){
+		// var music = new Audio('http://www.tannerhelland.com/dmusic/Deeper.mp3');
+		// music.play();
 	}
 	
 	createMap(width = 150, height = 60, maxRoomSize = 20, minRoomSize = 6, maxHallLength = 5, numRooms = 24, roomChance = .75) {
@@ -165,23 +166,6 @@ export class BoardCreator extends Component {
 	
 	render() {
 		
-		var Helper = function(object) {
-			for(var prop in object){
-				console.log(prop);
-			}
-		};
-		
-		var RenderThing;
-		//console.log(this.state.map);
-		
-		// if (this.state.map) {
-		// 	RenderThing = <Board firstLevel = { this.state.map } makeLevel = { this.createMap.bind(this) }/>;
-		// } else {
-		// 	RenderThing = <Board />;
-		// }
-		//console.log("RenderThing: " + Helper(RenderThing));
-		
-		
 		return (
 		  <div className="board-creator">
 			  <Board
@@ -196,8 +180,6 @@ export class BoardCreator extends Component {
 
 
 function mapStateToProps(state) {
-	// remember, you created an item state.posts.post in your reducer literally just for this page when it emits it's
-	// action creator to hold the return payload / blog post
 	return {state: state};
 }
 

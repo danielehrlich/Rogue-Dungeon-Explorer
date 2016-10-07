@@ -1,3 +1,5 @@
+https://travis-ci.org/danielehrlich/Rogue-Dungeon-Explorer.svg?branch=master
+
 # ReduxSimpleStarter
 
 Interested in learning [Redux](https://www.udemy.com/react-redux/)?

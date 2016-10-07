@@ -1,28 +1,21 @@
-4. Write tests :):)
-
 1. Styling
   1a. Get together attribution at bottom of landing page
   1b. Adjust padding and space at the bottom part of the attribution section
 
-2. Remove unecessary stuff from package.json
+2. Tests for Landing Page and other React component tests??
 
-3. Delete other unecessary folders
+3. Extract UI into other component
 
-5. Set up a deployment pipeline??
-  5a. Heroku push
-  5b. Gitlab
+4. Tests for Reducers and Actions
 
+5. Change style folder to be insider of SRC
 
-    {
-      test: /\.css$/,
-      loader: 'css-loader',
-    },
+6. Audio element fix! Maybe a promise??
 
-        {
-          test: /\.css$/,
-          loader: 'style-loader',
-        },
+7. Can you push it to Heroku? Also maybe clean up Webpack...
 
+8. Can you eliminate the Index.html file in the root folder?
 
+9. Connect Heroku and Travis CI
 
-        , 'react-hmre'
+10. ???

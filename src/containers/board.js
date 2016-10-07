@@ -14,10 +14,6 @@ export class Board extends Component {
 		super(props);
 		this._handleKeypress = this._handleKeypress.bind(this);
 		this.props.setWindowSize();
-		// let initialMapLength = _.fill(Array(150), 0);
-		// this.state = {
-		// 	map : initialMapLength
-		// };
 	}
 	
 	
@@ -29,8 +25,8 @@ export class Board extends Component {
 		this.timer = setTimeout(function () {
 			that._setupGame()
 		}, 1500);
-		
 	}
+	
 	
 	componentWillUnmount() {
 		clearTimeout(this.timer);
@@ -58,6 +54,7 @@ export class Board extends Component {
 	}
 	
 	
+	// Second select function just for dealing with this component when it first mounts
 	_select2(state, firstLevel) {
 		
 		return {
@@ -99,7 +96,6 @@ export class Board extends Component {
 	
 	_setupGame() {
 		
-		//var music = new Audio('http://www.tannerhelland.com/dmusic/Deeper.mp3');
 		this.props.resetMap(this.props.firstLevel);
 		this._fillMap()
 		this.props.setWindowSize();
@@ -151,6 +147,7 @@ export class Board extends Component {
 	_toggleDarkness() {
 		this.props.toggleDarkness();
 	}
+	
 	
 	_handleKeypress(e) {
 		let direction = '';
@@ -248,43 +245,17 @@ export class Board extends Component {
 	
 	
 	render() {
-		
 		const { map, player, level } = this.state;
 		
 			if (!(typeof map == 'undefined') && (map.length != 0)) {
-				//console.log("map checked out!");
 				const {
 				  entities, occupiedSpaces, windowHeight,
 				  windowWidth, darkness
 				}      = this.state;
 				const VIEW = 7;
 				//let tileSize = document.getElementsByClassName('tile').item(0) ? document.getElementsByClassName('tile').item(0).clientHeight : 10;
-				let tileSize = 10;
+				// let tileSize = 10;
 				
-				// // Get start coords for current viewport
-				// const numCols = Math.floor((windowWidth / tileSize) - 5),
-				//   numRows = Math.floor((windowHeight / tileSize) - 17);
-				// let beginX = Math.floor(player.x - (numCols / 2));
-				// let beginY = Math.floor(player.y - (numRows / 2));
-				// // Make sure start isn't less than 0
-				// if (beginX < 0) beginX = 0;
-				// if (beginY < 0) beginY = 0;
-				// // Set end coords
-				// let endX = beginX + numCols;
-				// let endY = beginY + numRows;
-				// // Final validation of start and end coords
-				//
-				// if (endX > map.length) {
-				// 	beginX = numCols > map.length ? 0 : beginX - (endX - map.length);
-				// 	endX = map.length;
-				// }
-				// console.log("beginXstuff: " + beginX + " " + endX);
-				// if (endY > map[0].length) {
-				// 	beginY = numRows > map[0].length ? 0 : beginY - (endY - map[0].length);
-				// 	endY = map[0].length;
-				// 	console.log(beginY + " " + endY);
-				//
-				// }
 				var beginX = 0;
 				var endX = 149;
 				var beginY = 0;
@@ -297,9 +268,6 @@ export class Board extends Component {
 					for (let x = beginX; x < endX; x++) {
 						let entity = occupiedSpaces[`${x}x${y}`];
 						if (!entity) {
-							//console.log(typeof reverseLookup);
-							//"Reverse Lookup: " + map[x][y] +
-							//console.log("x: " + x + " y: " + y);
 							var temp1 = map[x];
 							var temp2 = temp1[y];
 							tileClass = reverseLookup[temp2];

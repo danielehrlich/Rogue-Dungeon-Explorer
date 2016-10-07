@@ -1,4 +1,3 @@
-
 export const PLAYER = {
 	baseHealth: 100,
 	health: 20,
@@ -54,7 +53,6 @@ export const weaponItems = [
         attack: 30
     }
 ];
-
 
 export const htmlEntities = {
     "&": "&amp;",

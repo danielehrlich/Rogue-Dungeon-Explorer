@@ -12,6 +12,7 @@ body {
   background-color: black;
 }
 
+
 /* Title, UI, and icon stylings */
 h1 a, h4 {
   font-family: 'Dungeon';
@@ -149,8 +150,6 @@ button {
 }
 
 
-
-
 /* First Loading Page*/
 .square-box{
   position: relative;
@@ -215,9 +214,13 @@ ul#loading li:not(:first-child) {
   border-radius: 5%;
 }
 
+
+/* Attribution */
 div#attribution {
-  font-family: 'Times New Roman';
+  font-family: 'Arial';
   font-size: 25px;
+  color: white;
+  padding-top: 20px;
 }
 
 
