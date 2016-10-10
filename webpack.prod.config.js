@@ -1,4 +1,3 @@
-// Look over this later: http://javascriptplayground.com/blog/2016/07/css-modules-webpack-react/
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -6,14 +5,18 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 
 module.exports = {
+  
   entry: [
     './src/index.js'
   ],
+  
   output: {
     path: path.join(__dirname, 'build'),
     filename: 'build.min.js'
   },
+  
   devtool: '#sourcemap',
+  
   module: {
     loaders: [{
       exclude: /node_modules/,
@@ -41,12 +44,10 @@ module.exports = {
     { test: /\.[ot]tf$/,
       loader: 'url?limit=65000&mimetype=application/octet-stream&name=fonts/[name].[ext]'
     },
-
-
+      
     ]
   },
   
- 
   plugins: [
     new HtmlWebpackPlugin({
       inject: 'body',
@@ -58,4 +59,5 @@ module.exports = {
     }),
     new ExtractTextPlugin("style.css")
   ]
+  
 };

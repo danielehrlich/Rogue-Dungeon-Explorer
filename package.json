@@ -5,15 +5,13 @@
   "repository": "git@github.com:danielehrlich/Rogue-Dungeon-Explorer.git",
   "scripts": {
     "start": "node server.js",
-    "start1": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js",
     "dev": "webpack-dev-server --config webpack.dev.config.js",
     "hot": "webpack-dev-server --progress --hot --inline --config webpack.hot.config.js",
     "build": "webpack -p --config webpack.prod.config.js",
     "build -e": "webpack --config webpack.prod.config.js --display-error-details",
     "build2": "webpack --config webpack.prod.config.js && uglify-js ./build/bundle.js -c -m -o ./build/bundle.min.js --source-map ./build/bundle.min.js.map",
     "test": "mocha --compilers js:babel-core/register --require ./test/helpers/browser.js --recursive ./test --timeout 15000 --reporter landing",
-    "test:watch": "npm run test -- --watch",
-    "test3": "mocha --compilers js:babel-core/register --require ./test/helpers/browser.js --recursive ./test --timeout 3000 --debug"
+    "test:watch": "npm run test -- --watch"
   },
   "author": "Daniel Ehrlich",
   "license": "ISC",

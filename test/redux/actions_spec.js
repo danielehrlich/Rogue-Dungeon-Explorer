@@ -1,2 +1,25 @@
 // test a couple of actions
-// make sure respond is what you expect
+// make sure respond is what you ex
+
+import * as actions from '../../src/actions/index';
+import { expect } from 'chai';
+
+describe('Some Actions', () => {
+	it('addBoss should return the attack, health, and location of Boss', () => {
+		const attack = 5;
+		const health = 500;
+		const location = "50x50";
+		
+		const result = actions.addBoss(attack, health, location);
+		console.warn(result);
+		expect(result).to.eql(
+		  {
+		  	type: 'ADD_BOSS',
+		  	attack: 5,
+			health: 500,
+			location: "50x50"
+		  }
+		);
+	});
+});
+

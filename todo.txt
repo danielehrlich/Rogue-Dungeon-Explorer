@@ -1,21 +1,17 @@
-1. Styling
-  1a. Get together attribution at bottom of landing page
-  1b. Adjust padding and space at the bottom part of the attribution section
+1. Is the first page good to go?
 
-2. Tests for Landing Page and other React component tests??
+2. Tests for Landing Page and other final React component tests!
 
-3. Extract UI into other component
+3. Extract UI into other component?
 
-4. Tests for Reducers and Actions
-
-5. Change style folder to be insider of SRC
+4. Tests for Reducers and Actions!!
 
 6. Audio element fix! Maybe a promise??
 
-7. Can you push it to Heroku? Also maybe clean up Webpack...
+6.5. Figure out what, if anything, UglifyJS is doing..*[]:
+
+7. Adjust webpack and .travis.yml to work with Heroku.
 
 8. Can you eliminate the Index.html file in the root folder?
 
-9. Connect Heroku and Travis CI
-
-10. ???
+9. Clean up regular code!
