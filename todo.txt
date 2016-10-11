@@ -15,3 +15,5 @@
 8. Can you eliminate the Index.html file in the root folder?
 
 9. Clean up regular code!
+  9a. Specifically, do I need this set Window size stuff really?
+  9b. Other stuff :)

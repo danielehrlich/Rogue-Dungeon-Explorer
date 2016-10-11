@@ -1,8 +1,8 @@
 // test a couple of actions
 // make sure respond is what you ex
-
-import * as actions from '../../src/actions/index';
 import { expect } from 'chai';
+import * as actions from '../../src/actions/index';
+
 
 describe('Some Actions', () => {
 	it('addBoss should return the attack, health, and location of Boss', () => {

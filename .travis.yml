@@ -6,9 +6,9 @@ node_js:
 script: npm run test
 deploy:
   provider: heroku
-  app: youtube-search-app
+  app: Rogue-Dungeon-Explorer
   api_key:
-    secure: lxYsJT3HjMqndcd8F5uaHvzQmMlJnea5SAyqQPyxgP9tSPzJQqXXARQrXhKSbYo5Y3wfu5DoZPXfoLppt6UkTIy15n7hZrW1DU8m8ORY+G5ZIjiWFMdCCtLVwCfQ/xvWHktZqqkUfpywjL1qzszCdkS2SkrwMoCpT6ZrsOz4KtZ3Y92CQ5c53D4Oi0sT+RAx14oO+bnQ/sfRWsoyzy53NB40LegdLktlIf7OVDj1hnFmWaX7VumvmwiwwZaiqG1gV43n7TtmP2/NNPCLafH+o55gwfJ8elzwoQFgB53DHzjPc7q0zE+OwLc8L0qlOpjCJRJnuHqUtBK41Sq3KetnV+pJcW9YbvQtEGKGVI46cOTKIP0K/g4TN+47341MKJdgiJ39O4rBp7SxyyOlFjenALKmO47yb9zAjK2XFKBfo4I/EMmbh7rymf6esJJRAE6rgqYaf2jxZGLZRo8zQahyJQQsQmDUzDgEN5ZbxqkKHPUhqCoExDiYf8rlOY0l7ClIqLLq04YVX3xy6ixq+yD5pk4e9Mx5kVF99dyVXQTyIhK7TQK7agFAb3bgqMvk1t9LyZ+lLmgU8zh/P6uIoSn4aJnPu0h8+wHIMGlsShn8ptZRGF0ThLdGXkJlrTvInwAU82NR3YQd7gBr7f/F1pIAXEc4+Q3bP6cUAM4/XbLVz9w=
+    secure: HIIgP3opoF1zhwnqcqfrFuF4ash1rwWsDUe8GKKwz6B5DPe5kQR86o2eveRs9z1J38UzzRsFTSXeMXM3xg45KoHqGzsBqgmTNwHwKo5Sj1AuiiW79dlwJh5XNrrQGsI2BZNyu63Pa/tZAqkNXcCrZNRK6NpR4W5p92cAg2UshLA2oiNg2q4eEHWTMzcEUNtwwrmKjLPEp6PESAHBOixl3DXLqsZFuqhJ948R5fmIu67pzgYz5zH/UMkXR2wy8rs35vSY/l0Ba+DmpkBqiYjT9EbsnV/caKTFM+IFwd4Db8aG5baRI9uXIy1Nl8ye8t1+VUx1KD32lFs2zTFrUA9/nL0QOLYhAJ0tXQsIRmEhW4h1m5m4N5evHUCq6yU2KpC0rwpdVQ9RLnOaY0NwGX1Pvhd7XW5xAPSNzp6PvV9mM1AP2VmRVxkRKkFwRsSxjCp9+LUxFBghjrmfBBYs4lapRvKbSH+HiAVqKtMlW8hSoHf10YgvuOF6NUgrQIyUG6i2z44CeIfc/oADpMQbS36bC/0jDNdobdnWj+GB4w22gSF0L1ntfIuDSgGdQe7plPw/qY3p6XD4JBoLsFY9jY+w1QKgmVvL/PXeIyd2MjkigAeVlB7mKOgJ8Cm7ihPf1COXy/h+V9l59ObVFItea4Jzt0qEEGMi4vJFHmoszZoa5KM=
 addons:
   apt:
     sources:
@@ -16,4 +16,3 @@ addons:
     packages:
     - gcc-4.8
     - g++-4.8
-
