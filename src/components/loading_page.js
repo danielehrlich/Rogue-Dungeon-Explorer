@@ -56,7 +56,7 @@ class LoadingPage extends Component {
 				              Continue...
 						    </button>
 					    <div id="attribution">
-						    <p> <a href="https://github.com/danielehrlich/rogue-dungeon-explorer">@Github</a></p>
+						    <p> <a style="color: white" href="https://github.com/danielehrlich/rogue-dungeon-explorer">@Github</a></p>
 						    <p> Created by Daniel Ehrlich</p>
 					    </div>
 					    </div>

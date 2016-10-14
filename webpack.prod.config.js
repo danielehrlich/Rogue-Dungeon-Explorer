@@ -1,7 +1,7 @@
-const path = require('path');
-const webpack = require('webpack');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+var path = require('path');
+var webpack = require('webpack');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 
 module.exports = {
@@ -18,7 +18,8 @@ module.exports = {
   devtool: '#sourcemap',
   
   module: {
-    loaders: [{
+    loaders: [
+    {
       exclude: /node_modules/,
       loader: 'babel',
       query: {
@@ -51,12 +52,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       title: 'Rogue Dungeon Explorer',
-      inject: 'body'
-    }),
-    new webpack.optimize.UglifyJsPlugin({
-      compress: {
-        warnings: false
-      }
+      inject: 'body',
     }),
     new ExtractTextPlugin("style.css")
   ]
