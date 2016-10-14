@@ -51,31 +51,20 @@ describe('<ConnectedBoard/>', (done) => {
 			expect(wrapper.find('#board')).to.have.exactly(59).descendants('.boardRow');
 		});
 		
-		// it('Should have 149 columns making up the board', function() {
-		// 	expect(wrapper.find('.boardRow')).to.have.exactly(149).descendants('.tile');
-		// });
 	});
-	//
+
 	
 	describe('Player interaction tests', function (done) {
-		beforeEach((done) => {
-			var map3 = new BoardCreator();
-			var map4 = map3.createMap();
-			var props = {firstLevel: map4, store: createStoreWithMiddleware(reducers)};
-			var FunBoard = new ConnectedBoard(props);
-			done();
-		});
+		
 	
 		it('the player should be able to move and change position', function () {
-			//_handleDirection
-			console.warn("pass");
-
+			
+			function _addDirection(coords, direction) {
+				return { x: coords.x + direction.x, y: coords.y + direction.y };
+			}
+			
+			expect(_addDirection({ x: 5, y: 5 }, { x: 1, y: -1 })).to.deep.eql({x : 6, y: 4});
 		});
 		
-		it('should be able to handle keypress and give a vector', function () {
-			console.warn("pass");
-			
-		});
 	});
-	
 });

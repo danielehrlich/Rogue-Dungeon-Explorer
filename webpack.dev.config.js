@@ -1,6 +1,7 @@
-var path = require('path');
-var webpack = require('webpack');
-var autoprefixer = require('autoprefixer');
+const path = require('path');
+const webpack = require('webpack');
+const autoprefixer = require('autoprefixer');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
 	
@@ -13,15 +14,13 @@ module.exports = {
 		filename: 'bundle.js'
 	},
 	
-	devtool: 'source-map',
-	
 	module: {
 		loaders: [
 			{
 				exclude: /node_modules/,
 				loader: 'babel',
 				query: {
-					presets: ['react', 'es2015', 'stage-1']
+					presets: ['react', 'es2015', 'stage-1', 'react-hmre']
 				}
 			},
 			
@@ -65,10 +64,13 @@ module.exports = {
 	},
 	
 	plugins: [
-	new webpack.ProvidePlugin({
-		"React": "react",
-	}),
+		new HtmlWebpackPlugin({
+				title: 'Rogue Dungeon Explorer',
+				inject: 'body'
+			}),
+		new webpack.ProvidePlugin({
+			"React": "react",
+		}),
 	]
-	
 	
 };

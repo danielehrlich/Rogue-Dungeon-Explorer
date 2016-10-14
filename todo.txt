@@ -4,16 +4,23 @@
 
 3. Extract UI into other component?
 
-4. Tests for Reducers and Actions!!
-
 6. Audio element fix! Maybe a promise??
-
-6.5. Figure out what, if anything, UglifyJS is doing..*[]:
-
-7. Adjust webpack and .travis.yml to work with Heroku.
 
 8. Can you eliminate the Index.html file in the root folder?
 
 9. Clean up regular code!
   9a. Specifically, do I need this set Window size stuff really?
   9b. Other stuff :)
+
+
+
+  <!DOCTYPE html>
+  <html>
+    <head>
+      <meta charset="UTF-8">
+      <title>Webpack App</title>
+    </head>
+    <body>
+    <script> __REACT_DEVTOOLS_GLOBAL_HOOK__ = parent.__REACT_DEVTOOLS_GLOBAL_HOOK__ </script>
+    <script type="text/javascript" src="bundle.js"></script></body>
+  </html>

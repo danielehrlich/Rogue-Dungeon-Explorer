@@ -48,7 +48,7 @@ class LoadingPage extends Component {
 				<div className='square-content'>
 					<div>
 				    <span><ul id="loading">
-				    <li>Welcome to the Rogue Dungeon Game:</li>
+				    <li className="first-li">Welcome to the Rogue Dungeon Game:</li>
 				    <li>"Rogue" was a popular dungeon crawling game released in 1980 by Glenn Wichman and others at UC Santa Cruz.</li>
 				    <li>Video games are important to the history of computing. They have attracted many people to the field, and have been the impetus behind advancements in computer graphics and A.I.</li>
 				    <li>This game is meant to be played on the desktop.</li>

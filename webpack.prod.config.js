@@ -50,7 +50,8 @@ module.exports = {
   
   plugins: [
     new HtmlWebpackPlugin({
-      inject: 'body',
+      title: 'Rogue Dungeon Explorer',
+      inject: 'body'
     }),
     new webpack.optimize.UglifyJsPlugin({
       compress: {

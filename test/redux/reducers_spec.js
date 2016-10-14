@@ -1,7 +1,7 @@
 import { expect } from 'chai';
 import gameReducer from '../../src/reducers/game_reducer';
 
-describe('The Reducers', () => {
+describe('The reducers should return the correct values', () => {
 	
 	it('case SET_MAP should return the map passed in by the action', () => {
 		const state = {};
@@ -16,7 +16,7 @@ describe('The Reducers', () => {
 		expect(result).to.eql({map: map});
 	});
 	
-	it('case Toggle Darkness should return the opposite of the original value of darkness', () => {
+	it('case TOGGLE_DARKNESS should return the opposite of the original value of darkness', () => {
 		const state = {
 			darkness: false
 		};

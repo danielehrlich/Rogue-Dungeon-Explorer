@@ -1,7 +1,6 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
-import reducers from '../../src/reducers';
 import { mount, shallow, render } from 'enzyme';
 import chai, {expect} from 'chai';
 import chaiEnzyme from 'chai-enzyme';
@@ -9,12 +8,12 @@ import { initialStore } from  '../../src/helpers/initial_store';
 import BoardC, {BoardCreator} from '../../src/containers/board_creator';
 import * as actions from '../../src/actions/index';
 import ConnectedBoard, {Board} from '../../src/containers/board';
+import reducers from '../../src/reducers';
 chai.use(chaiEnzyme());
 const createStoreWithMiddleware = applyMiddleware()(createStore);
 
 
 describe('<BoardCreator/>', () => {
-	
 	
 	describe('These tests relate to the structure and style of the DOM', function (done) {
 		
@@ -28,11 +27,11 @@ describe('<BoardCreator/>', () => {
 			done();
 		});
 		
+		
 		it('should have the correct class name', function (done) {
 			expect(wrapper.find('.board-creator')).to.exist;
 			done();
 		});
-		
 		
 	});
 	
@@ -64,7 +63,5 @@ describe('<BoardCreator/>', () => {
 			expect(ans).to.be.false;
 		});
 		
-		
 	});
-	
 });

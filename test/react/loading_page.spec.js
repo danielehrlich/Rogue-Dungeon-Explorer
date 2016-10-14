@@ -1,24 +1,26 @@
 import React from 'react';
-import { mount, shallow } from 'enzyme';
+import { render, shallow } from 'enzyme';
 import sinon from 'sinon';
 import chai, {expect} from 'chai';
 import chaiEnzyme from 'chai-enzyme';
-import FogButton from '../../src/components/fog_button';
-chai.use(chaiEnzyme())
+import LoadingPage from '../../src/components/loading_page';
+chai.use(chaiEnzyme());
 
 
 describe('<LoadingPage/>', function () {
 	
-	it('should contain the right text', function () {
-		// let wrapperA = shallow(<FogButton/>);
-		// expect(wrapperA.find('button')).to.have.className('toggleButton');
+	var wrapper;
+
+	before(() => {
+		wrapper = shallow(<LoadingPage/>);
 	});
 	
-	it('should be able to be clicked', () => {
-		// const onButtonClick = sinon.spy(console, 'log');
-		// const wrapper = mount(<FogButton onClick={console.log(" ")}/>);
-		// wrapper.simulate('click');
-		// expect(onButtonClick.calledOnce).to.equal(true);
+	it('Loading Page introduction should contain the right text', function () {
+		expect(wrapper.find('.first-li')).to.include.text('Welcome to the Rogue Dungeon Game:');
+	});
+	
+	it('The Button should look the correct way', () => {
+		expect(wrapper.find('button')).to.have.text('Continue...');
 	});
 	
 });

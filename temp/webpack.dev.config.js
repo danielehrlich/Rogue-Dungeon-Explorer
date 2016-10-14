@@ -1,5 +1,6 @@
 var path = require('path');
 var webpack = require('webpack');
+var autoprefixer = require('autoprefixer');
 
 module.exports = {
 	
@@ -11,6 +12,8 @@ module.exports = {
 		path: __dirname,
 		filename: 'bundle.js'
 	},
+	
+	devtool: 'source-map',
 	
 	module: {
 		loaders: [
@@ -24,18 +27,48 @@ module.exports = {
 			
 			{
 				test: /\.css$/,
-				loaders: ['style','css']
+				loaders: ['style', 'css']
+			},
+			
+			{
+				test: /\.scss$/,
+				loaders: ['style', 'css', 'postcss', 'resolve-url', 'sass']
+			},
+			
+			{
+				test: /\.woff$/,
+				loader: 'url?limit=65000&mimetype=application/font-woff'
+			},
+			
+			{ test: /\.[ot]tf$/,
+				loader: 'url?limit=65000&mimetype=application/octet-stream&name=fonts/[name].[ext]'
 			}],
 	},
 	
+	externals: {
+		'cheerio': 'window',
+		'react/lib/ExecutionEnvironment': true,
+		'react/lib/ReactContext': true,
+	},
+	
+	postcss: [
+	  autoprefixer({ browsers: ['last 2 versions'] })
+	],
+	
 	resolve: {
-		extensions: ['', '.js', '.jsx', '.css', '.scss']
+		extensions: ['', '.js', '.jsx','.scss', '.css', 'woff', 'tff']
 	},
 	
 	devServer: {
 		historyApiFallback: true,
 		contentBase: './'
-	}
+	},
+	
+	plugins: [
+	new webpack.ProvidePlugin({
+		"React": "react",
+	}),
+	]
 	
 	
 };

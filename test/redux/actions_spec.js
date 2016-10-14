@@ -1,10 +1,8 @@
-// test a couple of actions
-// make sure respond is what you ex
 import { expect } from 'chai';
 import * as actions from '../../src/actions/index';
 
 
-describe('Some Actions', () => {
+describe('An action taken from the actions list should return the correct value', () => {
 	it('addBoss should return the attack, health, and location of Boss', () => {
 		const attack = 5;
 		const health = 500;

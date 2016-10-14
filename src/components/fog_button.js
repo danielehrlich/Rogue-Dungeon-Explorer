@@ -2,11 +2,7 @@ import React, { Component } from 'react';
 
 
 class FogButton extends Component {
-	/*propTypes: {
-		label: React.PropTypes.string.isRequired,
-		id: React.PropTypes.string.isRequired,
-		handleClick: React.PropTypes.func.isRequired
-	},*/
+
 	render () {
 		return (
 			<button
