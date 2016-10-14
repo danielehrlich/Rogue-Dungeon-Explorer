@@ -94,10 +94,7 @@ export class BoardCreator extends Component {
 				default:
 					break;
 			}
-			// Exit if room would be outside matrix
-			if (count % 10 === 0) {
-				
-			}
+
 			if (startX < 0 || startY < 0 || startX + width >= map.length || startY + height >= map[0].length) {
 				continue;
 				

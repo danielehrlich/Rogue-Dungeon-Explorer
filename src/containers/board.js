@@ -253,7 +253,7 @@ export class Board extends Component {
 				  windowWidth, darkness
 				}      = this.state;
 				const VIEW = 7;
-				//let tileSize = document.getElementsByClassName('tile').item(0) ? document.getElementsByClassName('tile').item(0).clientHeight : 10;
+				// let tileSize = document.getElementsByClassName('tile').item(0) ? document.getElementsByClassName('tile').item(0).clientHeight : 10;
 				// let tileSize = 10;
 				
 				var beginX = 0;

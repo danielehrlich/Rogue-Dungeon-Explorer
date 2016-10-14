@@ -1,12 +1,6 @@
 1. Is the first page good to go?
 
-2. Tests for Landing Page and other final React component tests!
-
-3. Extract UI into other component?
-
 6. Audio element fix! Maybe a promise??
-
-8. Can you eliminate the Index.html file in the root folder?
 
 9. Clean up regular code!
   9a. Specifically, do I need this set Window size stuff really?
