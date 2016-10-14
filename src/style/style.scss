@@ -35,8 +35,9 @@ h4 {
 }
 
 a {
-  text-decoration: none;
-  display: inline-block;
+  text-decoration: none !important;
+  display: inline-block !important;
+  color: inherit !important;
 }
 
 ul#ui {
@@ -202,8 +203,8 @@ ul#loading li {
   font-family: 'Dungeon';
 }
 
-ul#loading li:not(:first-child) {
-
+ul#loading li.last-li {
+  padding-bottom: 0px;
 }
 
 #continue {
@@ -220,7 +221,7 @@ div#attribution {
   font-family: 'Arial';
   font-size: 25px;
   color: white;
-  padding-top: 20px;
+  padding-top: 5px;
 }
 
 
