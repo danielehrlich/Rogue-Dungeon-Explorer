@@ -1,11 +1,10 @@
-1. Is the first page good to go?
+5. Title?
 
 6. Audio element fix! Maybe a promise??
 
-9. Clean up regular code!
-  9a. Specifically, do I need this set Window size stuff really?
-  9b. Other stuff :)
+7. Set Window Size
 
+8. Comments?
 
 
   <!DOCTYPE html>
