@@ -8,6 +8,7 @@
     "dev": "webpack-dev-server --progress --hot --inline --config webpack.dev.config.js",
     "build": "webpack -p --config webpack.prod.config.js",
     "build -e": "webpack --config webpack.prod.config.js --display-error-details",
+    "postinstall": "webpack -p --config webpack.prod.config.js",
     "test": "mocha --compilers js:babel-core/register --require ./test/helpers/browser.js --recursive ./test --timeout 15000 --reporter landing",
     "test:watch": "npm run test -- --watch"
   },

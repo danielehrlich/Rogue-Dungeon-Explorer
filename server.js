@@ -9,12 +9,6 @@ app.get('/', function(request, response) {
 	response.sendFile(__dirname + '/build/index.html')
 });
 
-app.post('/savefile', function(request, response){
-
-});
-
-console.log(process);
-
 app.listen(PORT, function(error) {
 	if (error) {
 		console.error(error);
@@ -22,4 +16,3 @@ app.listen(PORT, function(error) {
 		console.info("==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.", PORT, PORT);
 	}
 });
-
