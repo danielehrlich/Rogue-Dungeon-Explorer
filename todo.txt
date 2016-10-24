@@ -1,4 +1,4 @@
-5. Title?
+5. Padding for Game Title? Underline for @Github link
 
 6. Audio element fix! Maybe a promise??
 

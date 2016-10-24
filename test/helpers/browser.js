@@ -20,23 +20,3 @@ if (!global.document) {
 		// jsdom is not supported...
 	}
 }
-
-/*Import
- import TestUtils from 'react-addons-test-utils';
- import { Provider } from 'react-redux';
- import { createStore } from 'redux';
- import reducers from '../src/reducers';
-*/
-
-
-/*
- function renderComponent(ComponentClass, props, state) {
- const componentInstance = TestUtils.renderIntoDocument(
- <Provider store={createStore(reducers, state)}>
- <ComponentClass {...props}/>
- </Provider >
- );
- 
- return $(ReactDOM.findDOMNode(componentInstance));
- }
- */

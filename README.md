@@ -1,8 +1,8 @@
 [![Build Status](https://travis-ci.org/danielehrlich/Rogue-Dungeon-Explorer.svg?branch=master)](https://travis-ci.org/danielehrlich/Rogue-Dungeon-Explorer)
- ![Heroku](http://heroku-badge.herokuapp.com/?app=youtube%2Dsearch%2Dapp&style=flat&svg=1) [![Docker Hub](https://img.shields.io/badge/docker-ready-blue.svg)](https://registry.hub.docker.com/u/danora/youtube-search-app/)
+[![Heroku](http://heroku-badge.herokuapp.com/?app=youtube%2Dsearch%2Dapp&style=flat&svg=1)](https://rogue-dungeon-explorer-app.herokuapp.com)
+[![Docker Hub](https://img.shields.io/badge/docker-ready-blue.svg)](https://registry.hub.docker.com/u/danora/youtube-search-app/)
 
-![Rouge Dungeon Explorer App Screenshot](https://dl.dropboxusercontent.com/s/tqyj2885ko702ap/Screenshot%202016-10-24%2000.10.45.png)
- 
+![Rouge Dungeon Explorer App Screenshot](https://dl.dropboxusercontent.com/s/tqyj2885ko702ap/Screenshot%202016-10-24%2000.10.45.png) 
 # Rogue Dungeon App
 
 1. Utilizes React, the Youtube Node API, and lodash
@@ -10,19 +10,18 @@
 
 ##  Built With:
 
-Youtube Search App uses a number of open source projects to work properly:
+Rogue Dungeon Explorer uses a number of open source projects to work properly:
 
 * [React]
-* [Youtube Search API] 
 * [Lodash]
 * [node.js]
 * [Webpack]
 
 ## Installation
 
-Youtube Search App requires [Node.js](https://nodejs.org/) v6+ to run. Clone the repository and install the dependencies:
+Rogue Dungeon Explorer requires [Node.js](https://nodejs.org/) v6+ to run. Clone the repository and install the dependencies:
 ```sh
-$ cd Youtube Search App
+$ cd Rogue Dungeon Explorer
 $ npm install
 ```
 
@@ -42,7 +41,7 @@ $ npm run start
 
 ## Testing
 
-Youtube Search App uses the following for testing:
+Rogue Dungeon Explorer uses the following for testing:
 - [Mocha](https://mochajs.org/)
 - [Chai](http://chaijs.com/)
 - [Chai-Enzyme](https://github.com/producthunt/chai-enzyme)
@@ -62,7 +61,7 @@ $ npm run test:watch
 
 ## Deploy:
 
-Youtube Search App is set up to deploy with:
+Rogue Dungeon Explorer is set up to deploy with:
 - [Heroku](https://heroku.com)
 - [Travis CI](https://travis-ci.org)
 
@@ -80,7 +79,7 @@ Make sure you have linked your Travis-CI account with the Gitub repo you have cr
 Push to GitHub to kick off the tests followed by the build.
 
 ## Docker
-Youtube Search App is very easy to install and deploy in a Docker container. The following command will download the image, and create a Youtube Search App container that opens the correct port:
+Rogue Dungeon Explorer is very easy to install and deploy in a Docker container. The following command will download the image, and create a Rogue Dungeon Explorer container that opens the correct port:
 
 ```sh
 docker run -d -p 8080:8080 --restart="always" daniel/youtube-search-app:latest
