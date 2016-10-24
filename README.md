@@ -1,8 +1,8 @@
 [![Build Status](https://travis-ci.org/danielehrlich/Rogue-Dungeon-Explorer.svg?branch=master)](https://travis-ci.org/danielehrlich/Rogue-Dungeon-Explorer)
  ![Heroku](http://heroku-badge.herokuapp.com/?app=youtube%2Dsearch%2Dapp&style=flat&svg=1) [![Docker Hub](https://img.shields.io/badge/docker-ready-blue.svg)](https://registry.hub.docker.com/u/danora/youtube-search-app/)
 
-![Youtube Search App Screenshot](https://dl.dropboxusercontent.com/s/p6m33kpn6r1787a/Youtube%20Search%20App%20Screenshot.png)
-
+![Rouge Dungeon Explorer App Screenshot](https://dl.dropboxusercontent.com/s/tqyj2885ko702ap/Screenshot%202016-10-24%2000.10.45.png)
+ 
 # Rogue Dungeon App
 
 1. Utilizes React, the Youtube Node API, and lodash
